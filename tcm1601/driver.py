@@ -46,9 +46,9 @@ class PfeifferTCM1601xDriver(Driver):
 
     def query_message(self, msg):
         msg.get_raw().set_address(self.address)
-        msg.get_raw().apply_converter(msg.get_pre_converter())
+        msg.get_raw().apply_pre_converter(msg.get_pre_converter())
         response = self.protocol.write(self.transport, msg)
-        response.apply_converter(msg.get_post_converter())
+        response.apply_post_converter(msg.get_post_converter())
         return response
 
     def get_transport(self):

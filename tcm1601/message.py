@@ -15,7 +15,7 @@ class RawMessage(object):
         self._length = ""
         self._data = ""
         self._checksum = ""
-        pass
+
 
     def from_raw_message(self, raw_message):
         if len(raw_message) < 14:

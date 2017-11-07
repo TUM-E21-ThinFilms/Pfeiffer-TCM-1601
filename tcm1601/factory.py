@@ -19,7 +19,7 @@ from e21_util.transport import Serial
 from e21_util.log import get_sputter_logger
 from e21_util.ports import Ports
 
-class PfeifferTCM1601:
+class PfeifferTCM1601Factory:
 
     def get_logger(self):
         return get_sputter_logger('Pfeiffer Turbo', 'pfeiffer_turbo.log')
