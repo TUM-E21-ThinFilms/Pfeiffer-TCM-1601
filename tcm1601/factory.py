@@ -24,7 +24,7 @@ class PfeifferTCM1601:
     def get_logger(self):
         return get_sputter_logger('Pfeiffer Turbo', 'pfeiffer_turbo.log')
     
-    def create_gauge(self, device=None, logger=None):
+    def create(self, device=None, logger=None):
         if logger is None:
             logger = self.get_logger()
 

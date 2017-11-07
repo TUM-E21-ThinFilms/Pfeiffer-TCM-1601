@@ -85,12 +85,12 @@ class RawMessage(object):
             raise RuntimeError("Given number must be positive")
 
     def set_data(self, data):
-        len = len(data)
-        if len > 99:
+        length = len(data)
+        if length > 99:
             raise RuntimeError("Given data contains too much information")
 
-        self._length = str(len(self._data)).zfill(2)
         self._data = str(data)
+        self._length = str(len(self._data)).zfill(2)
 
     def set_checksum(self, checksum):
         new_checksum = str(checksum).zfill(3)
