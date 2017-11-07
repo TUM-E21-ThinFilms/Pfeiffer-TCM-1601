@@ -103,6 +103,8 @@ class RawMessage(object):
     def compute_checksum(self):
         data = "".join([self._address, self._action, self._parameternumber, self._length, self._data])
 
+        checksum = 0
+
         for char in data:
             checksum = checksum + ord(char)
 
