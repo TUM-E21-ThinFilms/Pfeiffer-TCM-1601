@@ -13,8 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from driver import PfeifferTPG26xDriver
-from protocol import PfeifferTPG26xProtocol
+from driver import PfeifferTCM1601xDriver
+from protocol import PfeifferTCM1601Protocol
 from e21_util.transport import Serial
 from e21_util.log import get_sputter_logger
 from e21_util.ports import Ports
@@ -31,6 +31,6 @@ class PfeifferTCM1601:
         if device is None:
             device = Ports().get_port(Ports.DEVICE_PFEIFFER_TURBO)
 
-        protocol = PfeifferTPG26xProtocol(logger)
-        return PfeifferTPG26xDriver(Serial(device, 9600, 8, 'N', 1, 0.5), protocol)
+        protocol = PfeifferTCM1601Protocol(logger)
+        return PfeifferTCM1601xDriver(Serial(device, 9600, 8, 'N', 1, 0.5), protocol)
 
