@@ -52,7 +52,7 @@ class PfeifferTCM1601Protocol(Protocol):
     def get_response(self, transport):
         try:
             raw = transport.read_until(RawMessage.TERMINATOR)
-            return [chr(x) for x in raw] + RawMessage.TERMINATOR
+            return "".join([chr(x) for x in raw]) + RawMessage.TERMINATOR
         except slave.transport.Timeout:
             raise CommunicationError("Received a timeout while reading response")
 
