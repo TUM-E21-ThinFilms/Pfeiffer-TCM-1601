@@ -84,6 +84,8 @@ class RawMessage(object):
         if int(new_param) < 0:
             raise RuntimeError("Given number must be positive")
 
+        self._parameternumber = new_param
+
     def set_data(self, data):
         length = len(data)
         if length > 99:

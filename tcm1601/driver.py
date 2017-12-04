@@ -38,7 +38,7 @@ class PfeifferTCM1601xDriver(Driver):
         self.protocol = protocol
 
         if address is None:
-            address = "0"
+            address = "001"
 
         self.address = address
 

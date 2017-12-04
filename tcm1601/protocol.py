@@ -24,8 +24,8 @@ from slave.transport import Timeout
 
 from message import AbstractMessage, RawMessage
 
-class PfeifferTCM1601Protocol(Protocol):
 
+class PfeifferTCM1601Protocol(Protocol):
     def __init__(self, logger):
         self.encoding = "ascii"
         self.logger = logger
@@ -35,15 +35,13 @@ class PfeifferTCM1601Protocol(Protocol):
 
     def create_message(self, message):
         msg = message.get_raw()
-        #msg.apply_converter(message.get_pre_converter())
+        # msg.apply_converter(message.get_pre_converter())
         msg.use_checksum()
 
         return msg.get_raw()
 
     def clear(self, transport):
         with InterProcessTransportLock(transport):
-            # Send <CR><LF>
-            # this should stop always the continous measurement
             self.logger.debug("Clearing message buffer...")
             try:
                 while True:
@@ -60,7 +58,7 @@ class PfeifferTCM1601Protocol(Protocol):
     def parse_response(self, response, message):
         resp = RawMessage()
         resp.from_raw_message(response)
-        #resp.apply_converter(message.get_post_converter())
+        # resp.apply_converter(message.get_post_converter())
         return resp
 
     def write(self, transport, message):
