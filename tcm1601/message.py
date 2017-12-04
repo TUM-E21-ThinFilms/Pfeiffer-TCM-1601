@@ -23,10 +23,10 @@ class RawMessage(object):
 
         self._address = raw_message[0:3]
         self._action = raw_message[3:5]
-        self._parameternumber = raw_message[5:9]
-        self._length = raw_message[9:11]
+        self._parameternumber = raw_message[5:8]
+        self._length = raw_message[8:10]
         self._checksum = raw_message[-4:-1]
-        self._data = raw_message[11:-4]
+        self._data = raw_message[10:-4]
 
         if not raw_message[-1:] == self.TERMINATOR:
             raise RuntimeError("Given raw message does not terminate with carriage return")
