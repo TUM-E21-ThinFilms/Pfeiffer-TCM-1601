@@ -130,8 +130,15 @@ class AbstractMessage(object):
         self._msg = RawMessage()
         if preconverter is None:
             self._preconverter = AbstractConverter()
+        else:
+            self._preconverter = preconverter
+
         if postconverter is None:
             self._postconverter = AbstractConverter()
+        else:
+            self._postconverter = postconverter
+
+
 
     def get_pre_converter(self):
         return self._preconverter
