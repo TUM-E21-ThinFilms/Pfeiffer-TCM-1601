@@ -16,7 +16,6 @@ class RawMessage(object):
         self._data = ""
         self._checksum = ""
 
-
     def from_raw_message(self, raw_message):
         if len(raw_message) < 14:
             raise RuntimeError("Given raw message is too short (< 14 chars)")
@@ -137,8 +136,6 @@ class AbstractMessage(object):
             self._postconverter = AbstractConverter()
         else:
             self._postconverter = postconverter
-
-
 
     def get_pre_converter(self):
         return self._preconverter
